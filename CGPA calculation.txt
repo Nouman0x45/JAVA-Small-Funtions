@@ -1,0 +1,168 @@
+static String getGrade(int marks)
+  {
+    String grades = "";
+    if( marks >= 80)
+    {
+      grades = "A";
+    }
+    else if( marks >= 70 && marks < 80)
+    {
+      grades = "A-";
+    }
+    else if( marks >= 65 && marks < 70)
+    {
+      grades = "B+";
+    }
+    else if( marks >= 60 && marks < 65)
+    {
+      grades = "B-";
+    }
+    else if( marks >= 55 && marks < 60)
+    {
+      grades = "C+";
+    }
+    else if( marks >= 50 && marks < 55)
+    {
+      grades = "C";
+    }
+    else if( marks >= 40 && marks < 50)
+    {
+      grades = "D";
+    }
+    else if(marks < 40)
+    {
+      grades = "F";
+    }
+    return grades;
+  }
+  
+  static double getGradePoints(String grades)
+  {
+    double gradepoint = 0.0;
+    if (grades == "A")
+    {
+      gradepoint = 4.0;
+    }
+    else if (grades == "A-")
+    {
+      gradepoint = 3.7;
+    }
+    else if (grades == "B+")
+    {
+      gradepoint = 3.3;
+    }
+    else if (grades == "B-")
+    {
+      gradepoint = 3.0;
+    }
+    else if (grades == "C+")
+    {
+      gradepoint = 2.7;
+    }
+    else if (grades == "C-")
+    {
+      gradepoint = 2.3;
+    }
+    else if (grades == "D")
+    {
+      gradepoint = 1.0;
+    }
+    else if (grades == "F")
+    {
+      gradepoint = 0.0;
+    }
+    return gradepoint;
+  }
+  
+//  static int getSemesters(List<CourseResultt>list)
+//  {
+//    int sem[] = new sem
+//  }
+  static int getSemesterCreditHours(int semester,List<CourseResultt>list)
+  {
+    int crdhours = 0;
+    CourseResultt oobjj = new CourseResultt();
+    for(int i=0; i < list.size();i++)
+    {
+      oobjj = new CourseResultt();
+      oobjj = list.get(i);
+      if(semester == oobjj.semester)
+      {
+        crdhours = crdhours + oobjj.CreditHours;
+      }
+    }
+    return crdhours;
+  }
+  
+  
+  static double getSemesterGPA(int semester,List<CourseResultt>list)
+  {
+    Double GPA = 0.0;
+    String gradw = "";
+    Double grdpoint = 0.0;
+    CourseResultt oobjj = new CourseResultt();
+    int size = list.size();
+      for(int i =0; i<size; i++)
+    {
+        oobjj = new CourseResultt();
+      oobjj = list.get(i);
+      if(semester == oobjj.semester)
+      {
+        gradw = getGrade(oobjj.marks);
+        grdpoint = oobjj.CreditHours * getGradePoints(gradw);
+        GPA = GPA + grdpoint;
+      }
+    }
+    return GPA;
+  }
+  
+  static int getTotalCreditHours(List<CourseResultt>list)
+  {
+    int Tcrdhours = 0;
+    CourseResultt oobjj = new CourseResultt();
+    for(int i=0; i < list.size();i++)
+    {
+      oobjj = new CourseResultt();
+      oobjj = list.get(i);
+        Tcrdhours = Tcrdhours + oobjj.CreditHours;
+    }
+    return Tcrdhours;
+  }
+  
+  static double getCGPA(List<CourseResultt>list)
+  {
+   // Double semgpa[] = new Double[8];
+   // Double semcre[] = new Double[8];
+    int count = 0;
+    CourseResultt oobj = new CourseResultt();
+    double CGPA = 0.0;
+    double sum_GPA = 0.0;
+    int totalcrdhours = 0;
+    for(int i =0; i<8 ;i++)
+    {
+      for(int k = 0; k < list.size(); k++)
+      {
+        oobj = new CourseResultt();
+        oobj = list.get(k);
+        int sem = oobj.semester;
+        if( sem == (1+i))
+        {
+          if(count == 0)
+          {
+            sum_GPA = sum_GPA + getSemesterGPA(sem,list);
+            //semgpa[i] = semgpa[i] +  getSemesterGPA(sem,list);
+            //semcre[i] = semcre[i] +  getSemesterCreditHours(sem,list);
+            count++;
+          }
+        }
+    }
+      count = 0;
+  }
+     totalcrdhours = getTotalCreditHours(list);
+//     for(int i=0;i<8;i++)
+//     {
+//       sum_GPA = sum_GPA + semgpa[i];
+//     }
+     CGPA = sum_GPA / totalcrdhours;
+     return CGPA;
+  }
