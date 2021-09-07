@@ -1,0 +1,34 @@
+// Factorial
+// Name = Nouman Butt
+// ID   = 2020-CS-110
+// Uni  = U.E.T
+// Date = 24/02/2021
+
+import java.util.Scanner;
+public class Task6 {
+  
+  static long factorial(int fact)
+  {
+    long a = 1;
+    for(int i=1;i<=fact;i++)
+    {
+      a = a*i;
+    }
+    return a;
+  }
+  
+  public static void main(String[] args)
+  {
+    Scanner cin = new Scanner(System.in);
+    
+    int fact;
+    long factor;
+    System.out.print("Enter the number of Which u want to FInd Factorial: ");
+    fact = cin.nextInt();
+    factor = factorial(fact);
+    System.out.print("Factorial of " + fact +" is " + factor);
+    
+    
+  } // ending bracket of main
+  
+} // ending bracket of class
