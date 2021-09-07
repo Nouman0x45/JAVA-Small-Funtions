@@ -1,0 +1,29 @@
+// To replace value of two variables without using third variable
+// Name = Nouman Butt
+// ID   = 2020-CS-110
+// Uni  = U.E.T
+// Date = 24/02/2021
+import java.util.Scanner;
+
+public class Task3 {
+  
+  public static void main(String[] args)
+  {
+    Scanner cin = new Scanner(System.in);
+    
+    int a,b;
+    System.out.print("Enter The First Number: ");
+    a = cin.nextInt();
+    System.out.print("Enter The Second Number: ");
+    b = cin.nextInt();
+    
+    b = a + b;
+    a = b - a;
+    b = b - a;
+    
+    System.out.println("After Swapping Variables.");
+    System.out.println("First Number is " + a );
+    System.out.println("Second Number is " + b );
+  }
+  
+}
