@@ -1,0 +1,43 @@
+// Insertion_Sorting_Of_Integer
+// Name = Nouman Butt
+// ID   = 2020-CS-110
+// Uni  = U.E.T
+// Date = 24/02/2021
+
+import java.util.Scanner;
+public class Task7 {
+  
+  public static void main(String[] args)
+  {
+    Scanner cin = new Scanner(System.in);
+    
+    int []arr = new int[10];
+    for(int i=0; i <10;i++)
+    { 
+      System.out.println("Enter " + (i+1) + " Number: ");
+      arr[i] = cin.nextInt();
+    }
+    int min;
+    int temp;
+    for(int i=0;i<10;i++)
+    {
+      min = i;
+      for(int k=i+1;k<10;k++)
+      {
+        if(arr[min] > arr[k])
+        {
+          min = k;
+        }
+      }
+         temp = arr[min];
+          arr[min] = arr[i];
+          arr[i] = temp;
+    }
+    for(int i=0;i<10;i++)
+    {
+      System.out.println( (i+1) + " Number is: " + arr[i]);
+    }
+    
+  } // ending bracket of main
+  
+} // ending bracket of class
