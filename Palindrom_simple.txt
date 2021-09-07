@@ -1,0 +1,45 @@
+// Palidrome_Simple
+// Name = Nouman Butt
+// ID   = 2020-CS-110
+// Uni  = U.E.T
+// Date = 24/02/2021
+
+import java.util.Scanner;
+public class Task9 {
+  
+  static boolean isPalindrome(char arr[])
+  {
+    boolean flag2 = false;
+    for(int i=0 ; i < (arr.length/2) ; i++)
+    {
+      if ( arr[i] == arr[arr.length-1-i] )
+      {
+        flag2 = true;
+      }
+      else
+      {
+        flag2 = false;
+        break;
+      }
+    }
+    return flag2;
+  }
+  
+  public static void main(String[] args)
+  {
+    Scanner cin = new Scanner(System.in);
+    char arr[] = cin.next().toCharArray();
+    
+    boolean flag1 = isPalindrome(arr); 
+    if(flag1 == true)
+    {
+      System.out.print("It's is a Palindrome");
+    }
+    else
+    {
+      System.out.print("It's not is a Palindrome");
+    }
+    
+  } // ending bracket of main
+  
+} // ending bracket of class
