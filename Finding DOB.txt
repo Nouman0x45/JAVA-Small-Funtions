@@ -1,0 +1,67 @@
+import java.time.LocalDate;  
+import java.time.Period;
+
+LocalDate today = LocalDate.now();
+  String dob = getDOB();
+  String arr1[] = dob.split(" ");
+  String arr2[] = arr1[1].split(",");
+  
+  int YYYY = Integer.parseInt(arr2[1]);
+    int DD = Integer.parseInt(arr2[0]);
+    int MM = -1;
+  if( arr1[0].equals("January") )
+  {
+    MM = 1;
+  }
+  else if( arr1[0].equals("February") )
+  {
+    MM = 2;
+  }
+  else if( arr1[0].equals("March") )
+  {
+    MM = 3;
+  }
+  else if( arr1[0].equals("April") )
+  {
+    MM = 4;
+  }
+  else if( arr1[0].equals("May") )
+  {
+    MM = 5;
+  }
+  else if( arr1[0].equals("June") )
+  {
+    MM = 6;
+  }
+  else if( arr1[0].equals("July") )
+  {
+    MM = 7;
+  }
+  else if( arr1[0].equals("August") )
+  {
+    MM = 8;
+  }
+  else if( arr1[0].equals("September") )
+  {
+    MM = 9;
+  }
+  else if( arr1[0].equals("October") )
+  {
+    MM = 10;
+  }
+  else if( arr1[0].equals("November") )
+  {
+    MM = 11;
+  }
+  else if( arr1[0].equals("December") )
+  {
+    MM = 12;
+  }
+  
+  LocalDate birth = LocalDate.of(YYYY,MM,DD);
+  int days = Period.between(birth, today).getDays();
+  int years = Period.between(birth, today).getYears();
+  int months = Period.between(birth, today).getMonths();
+  //System.out.print("Days: " + days + "\n" + "Months: " + months + "\n" + "Years: " + years);
+  //return days +"-" + months + "-" + years;
+  return "(Age is " + years + " years " + months + " months and " + days + " days)";
